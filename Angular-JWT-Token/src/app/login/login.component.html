@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+
+<video autoplay muted loop id="bg-video">
+    <source src="assets/videos/login-bg.mp4" type="video/mp4" />
+</video>
+
+<div align="center" style="margin-top: 40px;">
+    <h1>Login</h1>
+    <h3>
+        <font color="red">{{ form.message }}</font>
+    </h3>
+
+    <table cellpadding="10" cellspacing="0" style="border-collapse: separate; border-spacing: 10px;">
+        <tr>
+            <th align="right"><b>
+                    <font color="white">Login ID:</font>
+                </b></th>
+            <td><input type="text" name="loginId" [(ngModel)]="form.data.loginId" style="width: 250px;"></td>
+        </tr>
+        <tr>
+            <th align="right"><b>
+                    <font color="white">Password:</font>
+                </b></th>
+            <td><input type="password" name="password" [(ngModel)]="form.data.password" style="width: 250px;"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button (click)="signIn()">Sign In</button> &nbsp;
+                <button (click)="signUp()">Sign Up</button>
+            </td>
+        </tr>
+    </table>
+</div>

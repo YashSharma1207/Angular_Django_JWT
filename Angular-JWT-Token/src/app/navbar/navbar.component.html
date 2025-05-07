@@ -1,0 +1,19 @@
+<div class="navbar">
+  <h3 class="nav-greeting" *ngIf="!isLogin()">Hi, Guest</h3>
+  <h3 class="nav-greeting" *ngIf="isLogin()">Hi, {{ form.data.firstName }} <span class="role-tag">(admin)</span></h3>
+
+  <div class="nav-links" *ngIf="isLogin()">
+    <a href="/user"><b>Add User</b></a>
+    <span>|</span>
+    <a href="/userlist"><b>User List</b></a>
+    <span>|</span>
+    <a (click)="logout()"><b>Logout</b></a>
+  </div>
+
+  <div class="nav-links" *ngIf="!isLogin()">
+    <a href="/welcome"><b>Welcome</b></a>
+    <span>|</span>
+    <a href="/login"><b>Login</b></a>
+  </div>
+</div>
+

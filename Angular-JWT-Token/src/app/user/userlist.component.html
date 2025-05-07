@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+
+<div class="video-background">
+  <video autoplay muted loop id="bgVideo">
+    <source src="assets/videos/welcome-bg.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<div class="glass-container">
+
+<h1 class="page-title">User List</h1>
+
+<div class="search-bar">
+  <label><b>First Name : </b></label>
+            <input type="text" [(ngModel)]="form.searchParams.firstName" /> &nbsp;
+            <select name="id" [(ngModel)]="form.searchParams.id">
+                <option [ngValue]="null">{{'---------Select----------' }}</option>
+                <option *ngFor="let obj of form.preload" [value]="obj.id">
+                    {{obj.firstName +' '+obj.lastName}}
+                </option>
+            </select> &nbsp;
+            <button (click)="search()">search</button>
+</div>
+
+<table class="user-table">
+  <thead>
+    <tr>
+      <th>Select</th>
+      <th>S.No.</th>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>LoginId</th>
+      <th>Password</th>
+      <th>DOB</th>
+      <th>Address</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let m of form.list; let i = index">
+      <td><input type="checkbox" (change)="onCheckboxChange(m.id)" /></td>
+      <td>{{ (form.pageNo * 5) + i + 1 }}</td>
+      <td>{{ m.firstName }}</td>
+      <td>{{ m.lastName }}</td>
+      <td>{{ m.loginId }}</td>
+      <td>{{ m.password }}</td>
+      <td>{{ m.dob | date: 'dd-MM-yyyy' }}</td>
+      <td>{{ m.address }}</td>
+      <td><a [routerLink]="'/user/' + m.id">Edit</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="pagination-buttons">
+  <button [disabled]="form.pageNo == 0" (click)="previous()">Previous</button>
+  <a [routerLink]="'/user'"><button>Add</button></a>
+  <button (click)="delete()">Delete</button>
+  <button [disabled]="form.list.length < 5" (click)="next()">Next</button>
+</div>
+</div>

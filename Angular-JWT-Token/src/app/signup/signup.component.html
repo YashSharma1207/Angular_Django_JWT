@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+<div align="center" style="margin-top: 40px;">
+    <h1>User Registration</h1>
+    <h3>
+        <font color="green">{{ form.message }}</font>
+    </h3>
+
+    <table cellpadding="10" cellspacing="0" style="border-collapse: separate; border-spacing: 10px;">
+        <tr>
+            <th align="right">First Name:</th>
+            <td><input type="text" name="firstName" [(ngModel)]="form.data.firstName" style="width: 250px;"></td>
+        </tr>
+        <tr>
+            <th align="right">Last Name:</th>
+            <td><input type="text" name="lastName" [(ngModel)]="form.data.lastName" style="width: 250px;"></td>
+        </tr>
+        <tr>
+            <th align="right">Login ID:</th>
+            <td><input type="text" name="loginId" [(ngModel)]="form.data.loginId" style="width: 250px;"></td>
+        </tr>
+        <tr>
+            <th align="right">Password:</th>
+            <td><input type="password" name="password" [(ngModel)]="form.data.password" style="width: 250px;"></td>
+        </tr>
+        <tr>
+            <th align="right">DOB:</th>
+            <td><input type="date" name="dob" [(ngModel)]="form.data.dob" style="width: 250px;"></td>
+        </tr>
+        <tr>
+            <th align="right">Address:</th>
+            <td><input type="text" name="address" [(ngModel)]="form.data.address" style="width: 250px;"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button (click)="signUp()">Sign Up</button>
+            </td>
+        </tr>
+    </table>
+</div>
