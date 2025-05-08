@@ -20,8 +20,8 @@ export class SignupComponent {
   signUp() {
     var self = this;
     this.httpService.post('http://localhost:8000/ORSAPI/signUp/', this.form.data, function (res: any) {
-      console.log('res => ', res.data.message)
-      self.form.message = res.data.message
+      console.log('res => ', res.result.message)
+      self.form.message = res.result.message
     })
   }
 }

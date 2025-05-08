@@ -8,6 +8,9 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthServiceService implements HttpInterceptor {
+  signUp(data: any) {
+    throw new Error('Method not implemented.');
+  }
 
   token: any
 

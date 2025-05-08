@@ -10,7 +10,7 @@ class JWTMiddleware:
 
     def __call__(self, request):
         # Skip token validation for certain URLs if needed
-        if request.path_info in ['/ORSAPI/login/', '/ORSAPI/token/', '/ORSAPI/validate/']:
+        if request.path_info in ['/ORSAPI/login/', '/ORSAPI/token/', '/ORSAPI/validate/','/ORSAPI/signUp/']:
             return self.get_response(request)
 
         auth_header = request.headers.get('Authorization', '').split()
